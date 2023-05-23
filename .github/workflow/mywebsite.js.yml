@@ -2,26 +2,32 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: self-hosted
 
     strategy:
-          matrix:
-            node-version: [14.x, 16.x, 18.x]
-            # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: 
-        npm i
-        cd frontend
-        npm i
-        npm run build
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
