@@ -20,8 +20,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: 
-        mkdir node_modules
+    - run: |
         npm i
         cd frontend
         npm i
