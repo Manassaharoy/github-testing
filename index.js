@@ -1,11 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/test", (req, res) => {
-  res.send("Hello wold!");
-});
-
-app.get("/development", (req, res) => {
+app.get("/dev", (req, res) => {
   res.send("Hello wold!");
 });
 
