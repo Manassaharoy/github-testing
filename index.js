@@ -1,8 +1,13 @@
 const express = require("express");
 const cors = require("cors");
+
+const path = require("path")
+
 const app = express();
 
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, '/frontend/build')))
 
 // Added this line in main
 app.get("/dev", (req, res) => {
