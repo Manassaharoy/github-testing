@@ -6,7 +6,7 @@ app.get("/dev", (req, res) => {
 });
 
 //Hello FROM DEVELOPMENT
-
+//GENERATING MERGE FAIL
 app.listen(3001, () => {
   console.log("App is running on 3001");
 });
