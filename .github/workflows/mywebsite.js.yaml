@@ -21,6 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: 
+        mkdir node_modules
         npm i
         cd frontend
         npm i
