@@ -5,6 +5,10 @@ app.get("/test", (req, res) => {
   res.send("Hello wold!");
 });
 
+app.get("/development", (req, res) => {
+  res.send("Hello wold!");
+});
+
 app.listen(3001, () => {
   console.log("App is running on 3001");
 });
